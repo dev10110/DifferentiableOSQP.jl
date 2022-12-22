@@ -10,6 +10,13 @@ This package provides a thin wrapper of [OSQP.jl](https://github.com/osqp/OSQP.j
 
 The package exports 2 commands: `solve` and `solve_and_jac`.
 
+## Installation
+
+Activate your environment and simply add `DifferentialOSQP`:
+```
+] add https://github.com/dev10110/DifferentiableOSQP.jl
+```
+
 
 ## Interface 1: Solve a QP
 ```
