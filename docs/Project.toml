@@ -1,0 +1,3 @@
+[deps]
+DifferentiableOSQP = "b993eeee-3c95-4c69-8cb6-d892904cb2b0"
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
