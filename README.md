@@ -10,6 +10,10 @@ This package provides a thin wrapper of [OSQP.jl](https://github.com/osqp/OSQP.j
 
 The package exports 2 commands: `solve` and `solve_and_jac`.
 
+## Warning
+
+Naturally, not all QPs are differentiable. This library will always return a derivative, but doesnt check/warn if the derivative doesnt exist. I want to add this functionality in the future. See [this](https://doi.org/10.1109/CDC.2013.6760327) or [this](https://doi.org/10.1016/0022-247X(67)90163-1) paper for some results on existence of derivatives/Lipschitz continuity of QPs. 
+
 ## Installation
 
 Activate your environment and simply add `DifferentialOSQP`:
