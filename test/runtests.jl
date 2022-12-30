@@ -13,7 +13,7 @@ using LinearAlgebra, Test, DifferentiableOSQP, ForwardDiff, FiniteDifferences
 
   x = solve(P, q, A, u)
 
-  @test norm(x  - [-1, -1.]) <= 1e-4
+  @test norm(x  - [-1, -1.]) <= 1e-3
 
 
 end
@@ -47,7 +47,7 @@ end
 
   x = solve(th, gen_P, gen_q, gen_A, gen_u)
 
-  @test norm(x  - [-1, 0]) <= 1e-4
+  @test norm(x  - [-1, 0]) <= 1e-3
 
 
 end
@@ -79,14 +79,14 @@ end
   J = ForwardDiff.jacobian(parametric_qp, th)
   J_analytic = [[0 ;; 0;; -th[4]/th[3]^2 ;; 1.0/th[3]] ; [0 ;; 0 ;; 0;; 0]]
 
-  @test norm(J - J_analytic) <= 1e-4
+  @test norm(J - J_analytic) <= 1e-3
 
 
   th = [1,2,3,-4.]
   J = ForwardDiff.jacobian(parametric_qp, th)
   J_analytic = [[0 ;; 0;; -th[4]/th[3]^2 ;; 1.0/th[3]] ; [0 ;; 0 ;; 0;; 0]]
 
-  @test norm(J - J_analytic) <= 1e-4
+  @test norm(J - J_analytic) <= 1e-3
 
 
 
@@ -121,14 +121,14 @@ end
   J = ForwardDiff.jacobian(parametric_qp, th)
   J_analytic = [[-1 ;; 0] ; [0 ;; -1]]
 
-  @test norm(J - J_analytic) <= 1e-4
+  @test norm(J - J_analytic) <= 1e-3
 
 
   th = [-1,-2.]
   J = ForwardDiff.jacobian(parametric_qp, th)
   J_analytic = [[-0.5 ;; 0.5] ; [0.5 ;; -0.5]]
 
-  @test norm(J - J_analytic) <= 1e-4
+  @test norm(J - J_analytic) <= 1e-3
 
 
 end
@@ -185,8 +185,8 @@ end
                   ]
  
  
-  @test norm(x - x_analytic) <= 1e-4
-   @test norm(J - J_analytic) <= 1e-4
+  @test norm(x - x_analytic) <= 1e-3
+   @test norm(J - J_analytic) <= 1e-3
 
 end
 
