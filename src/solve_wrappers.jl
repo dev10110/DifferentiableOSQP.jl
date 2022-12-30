@@ -1,6 +1,6 @@
 
 
-function solve(P, q, A, u; verbose=false, kwargs...)
+function solve(P, q, A, u; verbose=false, eps_rel=1e-05, eps_abs=1e-5, kwargs...)
   """
   Uses OSQP to solve the QP:
   
@@ -16,7 +16,11 @@ function solve(P, q, A, u; verbose=false, kwargs...)
 
   # setup OSQP problem
   prob = OSQP.Model()
-  OSQP.setup!(prob; P=sparse(P), q=q, A=sparse(A), l=l, u=u, verbose=verbose, kwargs...)
+  OSQP.setup!(prob; P=sparse(P), q=q, A=sparse(A), l=l, u=u, 
+              verbose=verbose,
+              eps_rel=eps_rel,
+              eps_abs=eps_abs,
+              kwargs...)
   results = OSQP.solve!(prob)
   
   # check the result
