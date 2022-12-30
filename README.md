@@ -1,6 +1,6 @@
 # DifferentiableOSQP
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://dev10110.github.io/DifferentiableOSQP.jl/stable/)
+<!--- [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://dev10110.github.io/DifferentiableOSQP.jl/stable/) --->
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://dev10110.github.io/DifferentiableOSQP.jl/dev/)
 [![Build Status](https://github.com/dev10110/DifferentiableOSQP.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/dev10110/DifferentiableOSQP.jl/actions/workflows/CI.yml?query=branch%3Amain)
 
@@ -9,6 +9,7 @@
 This package provides a thin wrapper of [OSQP.jl](https://github.com/osqp/OSQP.jl), but also provides the ability to differentiate through the quadratic progam, based on the equations in [OptNet](https://arxiv.org/abs/1703.00443). 
 
 The package exports 2 commands: `solve` and `solve_and_jac`.
+
 
 ## Installation
 
@@ -91,3 +92,6 @@ J = ForwardDiff.jacobian(parametric_qp, θ0)
 ```
 
 
+## Warning
+
+Naturally, not all QPs are differentiable. This library will always return a derivative, but doesnt check/warn if the derivative doesnt exist. I want to add this functionality in the future. See [this](https://doi.org/10.1109/CDC.2013.6760327) or [this](https://doi.org/10.1016/0022-247X(67)90163-1) paper for some results on existence of derivatives/Lipschitz continuity of QPs. 
